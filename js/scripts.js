@@ -6,6 +6,14 @@ let pokemonList = [
   {name: 'Butterfree', height: 1.1, types: ['bug', 'flying']}
 ];
 
+// displays name and height of each object of the array
 for (let i = 0; i < pokemonList.length; i++) {
-  document.write(pokemonList[i].name + ' (height: ' + pokemonList[i].height + ')' + ' ');
+    document.write(pokemonList[i].name);
+    // higlights biggest pokemon from the array with a condition
+    if (pokemonList[i].height > 1.8) {
+      document.write(' (height: ' + pokemonList[i].height + ') - Wow, that’s big!</br>')
+    }
+    else {
+      document.write(' (height: ' + pokemonList[i].height + ')</br>')
+    }
 }
