@@ -1,10 +1,28 @@
-let pokemonList = [
-  {name: 'Bulbasaur', height: 0.7, types: ['grass', ' poison']},
-  {name: 'Ivysaur', height: 1, types: ['grass', ' poison']},
-  {name: 'Venusaur', height: 2, types: ['grass', ' poison']},
-  {name: 'Charizard', height: 1.7, types: ['fire', ' flying']},
-  {name: 'Butterfree', height: 1.1, types: ['bug', ' flying']}
-];
+let pokemonRepository = (function () {
+  let pokemonList = [
+    {name: 'Bulbasaur', height: 0.7, types: ['grass', ' poison']},
+    {name: 'Ivysaur', height: 1, types: ['grass', ' poison']},
+    {name: 'Venusaur', height: 2, types: ['grass', ' poison']},
+    {name: 'Charizard', height: 1.7, types: ['fire', ' flying']},
+    {name: 'Butterfree', height: 1.1, types: ['bug', ' flying']}
+  ];
+
+  function getAll() {
+    return pokemonList;
+  }
+
+  function add(poke) {
+    pokemonList.push(poke);
+  }
+
+  return {
+    add: add,
+    getAll: getAll,
+  }
+})();
+
+pokemonRepository.getAll();
+pokemonRepository.add({ name: 'Pikachu' });
 
 // // displays name and height of each object of the array
 // for (let i = 0; i < pokemonList.length; i++) {
@@ -18,6 +36,6 @@ let pokemonList = [
 //     }
 // }
 
-pokemonList.forEach(function(poke) {
+pokemonRepository.getAll().forEach(function (poke) {
   document.write(poke.name + ': ' + poke.height + ' - ' + poke.types + '<br>');
 });
