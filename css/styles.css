@@ -10,3 +10,22 @@ body {
   padding: 50px 0;
   text-align: center;
 }
+
+ul {
+  list-style: none;
+  padding-inline-start: 0;
+}
+
+.button-class {
+  color: black;
+  border: 2px solid #4caf50;
+  background-color: white;
+  width: 350px;
+  padding: 16px 32px;
+  margin: 4px 2px;
+}
+
+@media only screen and (max-width: 600px) {
+  .button-class {
+    width: 250px;
+}
