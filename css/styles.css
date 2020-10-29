@@ -74,6 +74,15 @@ ul {
   margin-bottom: 0;
 }
 
+#modal-container {
+  display: none;
+}
+
+#modal-container.is-visible {
+  /* CSS for modal container - add your own desired CSS styles here */
+  display: block;
+}
+
 @media only screen and (max-width: 600px) {
   .button-class {
     width: 250px;
