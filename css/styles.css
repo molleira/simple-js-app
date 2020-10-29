@@ -86,4 +86,5 @@ ul {
 @media only screen and (max-width: 600px) {
   .button-class {
     width: 250px;
+  }
 }
