@@ -17,14 +17,15 @@ let pokemonRepository = (function() {
     return pokemonList;
   }
 
-  // selects <ul> and creates <li> childs
+  // selects <ul>, creates <li> childs and adds a class
   function addListItem(pokemon) {
     let pokemonList = document.querySelector('.pokemon-list');
     let listItem = document.createElement('li');
-    // creates button for each <li>, add a class and display pokemon name
+    listItem.classList.add('group-list-item');
+    // creates button for each <li>, adds a class and displays pokemon name
     let button = document.createElement('button');
     button.innerText = pokemon.name;
-    button.classList.add('button-class');
+    button.classList.add('button-class', 'btn', 'btn-primary');
     // appends and listens to clicks
     listItem.appendChild(button);
     pokemonList.appendChild(listItem);
