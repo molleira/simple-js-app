@@ -20,7 +20,7 @@ let pokemonRepository = (function() {
     pokemonRepository.loadDetails(pokemon).then(function () {
       let $row = $(".row");
 
-      let $card = $('<div class="card"></div>');
+      let $card = $('<div class="card col-sm-12 col-md-6 col-lg-4"></div>');
       let $image = $(
         '<img class="card-img-top" alt="Card image">'
       );

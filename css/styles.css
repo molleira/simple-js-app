@@ -14,14 +14,7 @@ body {
 
 /* centers container */
 .row {
-  max-width: 90%;
   margin: auto;
-}
-
-/* centers pokemon cards */
-.card {
-  width: 30%;
-  margin: 15px auto;
 }
 
 /* sets card's image size */
