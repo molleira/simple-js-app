@@ -55,25 +55,26 @@ let pokemonRepository = (function() {
 
  // returns json list items
  function loadList() {
-   return $.ajax(apiUrl)
-     .then(function (json) {
-       json.results.forEach(function (item) {
-         let pokemon = {
-           name: item.name,
-           detailsUrl: item.url,
-         };
-         add(pokemon);
-         console.log(pokemon);
-       });
-     })
-     .catch(function (e) {
-       console.error(e);
-     });
- }
+    return fetch(apiUrl).then(function(response) {
+      return response.json();
+    }).then(function(json) {
+      // displays name and details
+      json.results.forEach(function(item) {
+        let pokemon = {
+          name: item.name,
+          detailsUrl: item.url
+        };
+        add(pokemon);
+        console.log(pokemon);
+      });
+    }).catch(function (e) {
+      console.error(e);
+    })
+  }
 
  // selects which details will be displayed
  function loadDetails(item) {
-   var url = item.detailsUrl;
+   let url = item.detailsUrl;
    return $.ajax(url)
      .then(function (details) {
        // adds the details to the item
@@ -82,12 +83,12 @@ let pokemonRepository = (function() {
        item.height = details.height;
        // loops each pokemon types
        item.types = [];
-       for (var i = 0; i < details.types.length; i++) {
+       for (let i = 0; i < details.types.length; i++) {
          item.types.push(details.types[i].type.name);
        }
        // loop to get the abilities of a selected pokemon
        item.abilities = [];
-       for (var i = 0; i < details.abilities.length; i++) {
+       for (let i = 0; i < details.abilities.length; i++) {
          item.abilities.push(details.abilities[i].ability.name);
        }
        item.weight = details.weight;
