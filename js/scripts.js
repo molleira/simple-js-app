@@ -75,7 +75,7 @@ let pokemonRepository = (function() {
  // selects which details will be displayed
  function loadDetails(item) {
    let url = item.detailsUrl;
-   return fetch(url)
+   return $.ajax(url)
      .then(function (details) {
        // adds the details to the item
        item.imageUrlFront = details.sprites.front_default;
