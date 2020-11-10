@@ -18,15 +18,15 @@ let pokemonRepository = (function() {
   // creates markup structure to display content
   function addListItem(pokemon) {
     pokemonRepository.loadDetails(pokemon).then(function () {
-      let $row = $(".row");
+      let $row = $('.row');
 
       let $card = $('<div class="card col-sm-12 col-md-6 col-lg-4"></div>');
       let $image = $(
         '<img class="card-img-top" alt="Card image">'
       );
-      $image.attr("src", pokemon.imageUrlFront);
+      $image.attr('src', pokemon.imageUrlFront);
       let $cardBody = $('<div class="card-body"></div>');
-      let $cardTitle = $("<h4 class='card-title'>" + pokemon.name + "</h4>");
+      let $cardTitle = $('<h4 class=\'card-title\'>' + pokemon.name + '</h4>');
       let $seeProfile = $(
         '<button type="button" class="btn btn-dark" data-toggle="modal" data-target="#pokeModal">See Profile</button>'
       );
@@ -39,7 +39,7 @@ let pokemonRepository = (function() {
       $cardBody.append($seeProfile);
 
       // listens to click to display details
-      $seeProfile.on("click", function (event) {
+      $seeProfile.on('click', function (event) {
         showDetails(pokemon);
       });
     });
@@ -48,7 +48,6 @@ let pokemonRepository = (function() {
   // shows the pokemon's details in a modal and in the console
   function showDetails(item) {
     pokemonRepository.loadDetails(item).then(function () {
-      console.log(item);
       showModal(item);
     });
   }
@@ -73,7 +72,7 @@ let pokemonRepository = (function() {
 
  // selects which details will be displayed
  function loadDetails(item) {
-   var url = item.detailsUrl;
+   let url = item.detailsUrl;
    return $.ajax(url)
      .then(function (details) {
        // adds the details to the item
@@ -82,12 +81,12 @@ let pokemonRepository = (function() {
        item.height = details.height;
        // loops each pokemon types
        item.types = [];
-       for (var i = 0; i < details.types.length; i++) {
+       for (let i = 0; i < details.types.length; i++) {
          item.types.push(details.types[i].type.name);
        }
        // loop to get the abilities of a selected pokemon
        item.abilities = [];
-       for (var i = 0; i < details.abilities.length; i++) {
+       for (let i = 0; i < details.abilities.length; i++) {
          item.abilities.push(details.abilities[i].ability.name);
        }
        item.weight = details.weight;
@@ -99,23 +98,23 @@ let pokemonRepository = (function() {
 
  // shows the modal content
  function showModal(item) {
-   let modalBody = $(".modal-body");
-   let modalTitle = $(".modal-title");
-   let modalHeader = $(".modal-header");
+   let modalBody = $('.modal-body');
+   let modalTitle = $('.modal-title');
+   let modalHeader = $('.modal-header');
    // clears existing content of the model
    modalTitle.empty();
    modalBody.empty();
 
    // creates the different elements in modal content
-   let nameElement = $("<h1>" + item.name + "</h1>");
+   let nameElement = $('<h1>' + item.name + '</h1>');
    let imageElementFront = $('<img class="modal-img" style="width:50%">');
-   imageElementFront.attr("src", item.imageUrlFront);
+   imageElementFront.attr('src', item.imageUrlFront);
    let imageElementBack = $('<img class="modal-img" style="width:50%">');
-   imageElementBack.attr("src", item.imageUrlBack);
-   let heightElement = $("<p>" + "height : " + item.height + "</p>");
-   let weightElement = $("<p>" + "weight : " + item.weight + "</p>");
-   let typesElement = $("<p>" + "types : " + item.types + "</p>");
-   let abilitiesElement = $("<p>" + "abilities : " + item.abilities + "</p>");
+   imageElementBack.attr('src', item.imageUrlBack);
+   let heightElement = $('<p>' + 'weight : ' + item.height + '</p>');
+   let weightElement = $('<p>' + 'weight : ' + item.weight + '</p>');
+   let typesElement = $('<p>' + 'types : ' + item.types + '</p>');
+   let abilitiesElement = $('<p>' + 'abilities : ' + item.abilities + '</p>');
 
    // appends the different elements in modal content
    modalTitle.append(nameElement);
