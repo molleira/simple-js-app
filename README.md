@@ -6,7 +6,7 @@ This project is a web application that loads data from an external API and enabl
 
 The application loads Pokémon data from the API so users can view a list of Pokémons and click on the name of a Pokémon to view a modal with more details.
 
-Please click [this link]((https://molleira.github.io/simple-js-app/) to visit the Pokédex.
+Please click [this link](https://molleira.github.io/simple-js-app/) to visit the Pokédex.
 
 ### About
 The project has been created with **HTML**, **CSS** and **JavasCript**. It actually is my first learn-by-doing project development to learn the founditaions of this programming language.
