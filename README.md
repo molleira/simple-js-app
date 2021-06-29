@@ -1,4 +1,4 @@
-## Portfolio Website
+## Pokédex - Simple JavaScript App
 
 ![Demo](demo/demo.gif)
 
